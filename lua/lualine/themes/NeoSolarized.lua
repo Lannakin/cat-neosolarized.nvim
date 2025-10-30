@@ -1,3 +1,7 @@
+-- /lua/lualine/themes/NeoSolarized.lua
+-- WARNING: this has been modified from the original NeoSolarized.nvim
+-- src: https://github.com/Tsuzat/NeoSolarized.nvim
+
 local light = require("NeoSolarized.config").is_day()
 local palette = require("NeoSolarized.colors").dark
 
@@ -34,7 +38,7 @@ theme = {
     c = { bg = light and palette.bg1 or palette.bg0, fg = light and palette.base3 or palette.fg0 },
   },
   terminal = {
-    a = { bg = palette.purple, fg = palette.bg0, gui = 'bold' },
+    a = { bg = palette.magenta, fg = palette.bg0, gui = 'bold' },
     b = { bg = light and palette.bg1 or palette.bg0, fg = light and palette.base3 or palette.fg0 },
     c = { bg = light and palette.bg1 or palette.bg0, fg = light and palette.base3 or palette.fg0 },
   },

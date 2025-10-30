@@ -1,3 +1,7 @@
+-- /lua/NeoSolarized/util.lua
+-- WARNING: this has been modified from the original NeoSolarized.nvim
+-- src: https://github.com/Tsuzat/NeoSolarized.nvim
+
 local ts = require("NeoSolarized.treesitter")
 
 local M = {}
@@ -53,8 +57,8 @@ function M.terminal(colors)
   vim.g.terminal_color_4 = colors.blue
   vim.g.terminal_color_12 = colors.blue
 
-  vim.g.terminal_color_5 = colors.purple
-  vim.g.terminal_color_13 = colors.purple
+  vim.g.terminal_color_5 = colors.magenta
+  vim.g.terminal_color_13 = colors.magenta
 
   vim.g.terminal_color_6 = colors.cyan
   vim.g.terminal_color_14 = colors.cyan

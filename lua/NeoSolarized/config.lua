@@ -1,3 +1,7 @@
+-- /lua/NeoSolarized/config.lua
+-- WARNING: this has been modified from the original NeoSolarized.nvim
+-- src: https://github.com/Tsuzat/NeoSolarized.nvim
+
 local M = {}
 
 local defaults = {

@@ -1,16 +1,26 @@
-# 🖌 NeoSolarized
+<!-- README.md -->
+# 🖌 cat-NeoSolarized
 
-A dark and light Neovim theme written in Lua ported from 
-[NeoSolarized](https://github.com/overcache/NeoSolarized) with better syntax highlighting. Includes
-extra themes for Kitty, Alacritty, Wezterm, Konsole and Windows Terminal.
+> ⚠️ modified from [NeoSolarized.nvim](https://github.com/Tsuzat/NeoSolarized.nvim) ⚠️
+
+A dark and light Neovim theme written in Lua ported from
+[NeoSolarized](https://github.com/overcache/NeoSolarized) to
+[NeoSolarized.nvim](https://github.com/Tsuzat/NeoSolarized.nvim) and then
+improved with more cat hair.
+
+Includes extra themes for Kitty, Alacritty, Wezterm, Konsole and
+Windows Terminal.
 
 ## Dark (Dark Theme with Transparency)
+
 ![Screenshot_20230430_084417](https://user-images.githubusercontent.com/70003855/235333907-c064208a-3975-404d-874b-58e5c52ee5f0.png)
 
 ## Dark
+
 ![Screenshot_20230430_084549](https://user-images.githubusercontent.com/70003855/235333913-ed7b5a20-d114-4963-96e9-1bf06f34440c.png)
 
 ## Light
+
 ![Screenshot_20230430_084640](https://user-images.githubusercontent.com/70003855/235333918-848cc7c1-8069-4156-abc4-41fde7283c15.png)
 
 ## 🔥 Features
@@ -19,7 +29,7 @@ extra themes for Kitty, Alacritty, Wezterm, Konsole and Windows Terminal.
 - better syntax highlighting
 - color configs for
   [`Kitty`](https://sw.kovidgoyal.net/kitty/conf.html?highlight=include),
-  [`Alacritty`](https://github.com/alacritty/alacritty), 
+  [`Alacritty`](https://github.com/alacritty/alacritty),
   [`Konsole`](https://konsole.kde.org/) and
   [`Wezterm`](https://github.com/wez/wezterm)
 - **`lualine`** theme
@@ -55,13 +65,13 @@ extra themes for Kitty, Alacritty, Wezterm, Konsole and Windows Terminal.
 
 Install the theme with your preferred package manager:
 
-#### [`vim-plug`](https://github.com/junegunn/vim-plug)
+### [`vim-plug`](https://github.com/junegunn/vim-plug)
 
 ```vim
 Plug 'Tsuzat/NeoSolarized.nvim', { 'branch': 'master' }
 ```
 
-#### [`packer`](https://github.com/wbthomason/packer.nvim)
+### [`packer`](https://github.com/wbthomason/packer.nvim)
 
 ```lua
 use ('Tsuzat/NeoSolarized.nvim')
@@ -69,14 +79,20 @@ use ('Tsuzat/NeoSolarized.nvim')
 **or** clone the project and install locally using packer.
 
 First clone the project in you machine.
+
 ```sh
-$ git clone https://github.com/Tsuzat/NeoSolarized.nvim
+git clone https://github.com/Tsuzat/NeoSolarized.nvim
 ```
+```
+```
+
 Install using packer
+
 ```lua
 use ('path-to-NeoSolarized')
 ```
-#### [`lazy.nvim`](https://github.com/folke/lazy.nvim)
+
+### [`lazy.nvim`](https://github.com/folke/lazy.nvim)
 
 ```lua
 {
@@ -122,7 +138,8 @@ require('lualine').setup {
 
 The theme comes in two styles, `light` and `dark`.
 
-NeoSolarized will use the default options, unless you call `setup`.
+NeoSolarized will use the default options, unless you call `setup`. (Note: Lazy.nvim will call setup via
+'opts = {}')
 Here an example to set things up using default options.
 
 ```lua
@@ -178,6 +195,6 @@ Pull requests are welcome. One can add plugin and language specific highlight gr
 
 ## 🏅 Inspiration
 
-  - Plugin Structure is heavily inspired from [Tokyonight](https://github.com/folke/tokyonight.nvim)
-  - Classic color palettes from [NeoSolarized](https://github.com/overcache/NeoSolarized)
-  - Love for Full Transparent NeoVim themes.
+- Plugin Structure is heavily inspired from [Tokyonight](https://github.com/folke/tokyonight.nvim)
+- Classic color palettes from [NeoSolarized](https://github.com/overcache/NeoSolarized)
+- Love for Full Transparent NeoVim themes.

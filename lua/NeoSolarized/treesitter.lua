@@ -1,3 +1,7 @@
+-- /lua/NeoSolarized/treesitter.lua
+-- WARNING: this has been modified from the original NeoSolarized.nvim
+-- src: https://github.com/Tsuzat/NeoSolarized.nvim
+
 local M = {}
 
 function M.new_style()

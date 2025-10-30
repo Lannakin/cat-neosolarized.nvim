@@ -1,6 +1,10 @@
+-- /lua/NeoSolarized/colors.lua
+-- WARNING: this has been modified from the original NeoSolarized.nvim
+-- src: https://github.com/Tsuzat/NeoSolarized.nvim
+
 local M = {}
 
--- @class Dark Color Palette
+---@class DarkColorPalette
 M.dark = {
   bg0         = '#002b36',
   bg1         = '#073642',
@@ -17,7 +21,7 @@ M.dark = {
   green       = '#859900',
   aqua        = '#2aa198',
   blue        = '#268bd2',
-  purple      = '#d33682',
+  magenta     = '#d33682', -- renamed from purple to match convention
   violet      = '#6c71c4',
   bg_red      = '#da0000',
   bg_green    = '#859000',
@@ -29,7 +33,7 @@ M.dark = {
   none        = "NONE"
 }
 
--- @class Light Color Palette
+---@class LightColorPalette
 M.light = {
   bg0         = '#fdf6e3',
   bg1         = '#eee8d5',
@@ -46,7 +50,7 @@ M.light = {
   green       = '#859900',
   aqua        = '#2aa198',
   blue        = '#268bd2',
-  purple      = '#d33682',
+  magenta     = '#d33682', -- renamed from purple to match convention
   violet      = '#6c71c4',
   bg_red      = '#da0000',
   bg_green    = '#859000',
