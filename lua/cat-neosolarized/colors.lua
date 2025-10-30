@@ -4,7 +4,6 @@
 
 local M = {}
 
----@class DarkColorPalette
 M.dark = {
 	bg0 =         "#002b36",
 	bg1 =         "#073642",
@@ -33,7 +32,6 @@ M.dark = {
 	none =        "NONE",
 }
 
----@class LightColorPalette
 M.light = {
 	bg0 =         "#fdf6e3",
 	bg1 =         "#eee8d5",

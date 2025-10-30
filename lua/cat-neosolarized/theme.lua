@@ -2,11 +2,11 @@
 -- WARNING: this has been modified from the original NeoSolarized.nvim
 -- src: https://github.com/Tsuzat/NeoSolarized.nvim
 
-local colors = require('cat-neosolarized.colors')
+local colors = require("cat-neosolarized.colors")
 
 local M = {}
 function M.setup()
-	local config = require('cat-neosolarized.config')
+	local config = require("cat-neosolarized.config")
 	local options = config.options
 	local theme = {
 		config = options,
