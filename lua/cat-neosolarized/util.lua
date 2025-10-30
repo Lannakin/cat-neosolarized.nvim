@@ -1,8 +1,8 @@
--- /lua/NeoSolarized/util.lua
+-- /lua/cat-neosolarized/util.lua
 -- WARNING: this has been modified from the original NeoSolarized.nvim
 -- src: https://github.com/Tsuzat/NeoSolarized.nvim
 
-local ts = require("NeoSolarized.treesitter")
+local ts = require('cat-neosolarized.treesitter')
 
 local M = {}
 
@@ -71,7 +71,7 @@ function M.load(theme)
   end
 
   vim.o.termguicolors = true
-  vim.g.colors_name = "NeoSolarized"
+  vim.g.colors_name = "cat-neosolarized" -- colorscheme name
 
   if ts.new_style() then
     M.syntax(ts.defaults)

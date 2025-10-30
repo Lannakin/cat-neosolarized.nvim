@@ -1,4 +1,4 @@
--- /lua/NeoSolarized/treesitter.lua
+-- /lua/cat-neosolarized/treesitter.lua
 -- WARNING: this has been modified from the original NeoSolarized.nvim
 -- src: https://github.com/Tsuzat/NeoSolarized.nvim
 

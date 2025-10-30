@@ -1,12 +1,12 @@
--- /lua/NeoSolarized/theme.lua
+-- /lua/cat-neosolarized/theme.lua
 -- WARNING: this has been modified from the original NeoSolarized.nvim
 -- src: https://github.com/Tsuzat/NeoSolarized.nvim
 
-local colors = require("NeoSolarized.colors")
+local colors = require('cat-neosolarized.colors')
 
 local M = {}
 function M.setup()
-	local config = require("NeoSolarized.config")
+	local config = require('cat-neosolarized.config')
 	local options = config.options
 	local theme = {
 		config = options,
@@ -18,62 +18,92 @@ function M.setup()
 	theme.highlights = {
 
 		ColorColumn =   { bg = c.bg1 }, -- used for the columns set with 'colorcolumn'
-		Comment = {     -- any comment
-      fg = c.fg2, 
+		Comment = {                     -- any comment
+      fg = c.fg2,
       style = options.styles.comments 
     },
-		Conceal =       { fg = c.bg1 }, -- placeholder characters substituted for concealed text (see 'conceallevel')
+		Conceal =       { fg = c.bg1 },                 -- placeholder characters substituted for concealed text
+                                                    -- (see 'conceallevel')
 		CurSearch =     { link = "IncSearch" },
 		CurrentWord =   { fg = c.bg0, bg = c.bg_green },
-		Cursor =        { fg = c.bg1, bg = c.fg0 }, -- character under the cursor
-		CursorColumn =  { link = "CursorLine" }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
-		CursorIM =      { fg = c.bg0, bg = c.fg0 }, -- like Cursor, but used when in IME mode |CursorIM|
-		CursorLine = {  -- Screen-line at the cursor when 'cursorline' is set.  Low prio if (ctermfg / guifg) not set.
-      bg = options.transparent and c.bg0 or c.bg1 
-    }, 
-		CursorLineNr =  { fg = c.base2 }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
-		DiffAdd =       { bg = c.diff_add }, -- diff mode: Added line |diff.txt|
+		Cursor =        { fg = c.bg1, bg = c.fg0 },     -- character under the cursor
+		CursorColumn =  { link = "CursorLine" },        -- Screen-column at the cursor, when 'cursorcolumn' is set
+		CursorIM =      { fg = c.bg0, bg = c.fg0 },     -- like Cursor, but used when in IME mode |CursorIM|
+		CursorLine = {                                  -- Screen-line at the cursor when 'cursorline' is set;
+      bg = options.transparent and c.bg0 or c.bg1   -- low prio if (ctermfg / guifg) not set
+    },
+		CursorLineNr =  { fg = c.base2 },               -- Like LineNr when 'cursorline' / 'relativenumber'
+                                                    -- is set for the cursor line.
+    DiffAdd =       { bg = c.diff_add },    -- diff mode: Added line |diff.txt|
 		DiffChange =    { bg = c.diff_change }, -- diff mode: Changed line |diff.txt|
 		DiffDelete =    { bg = c.diff_delete }, -- diff mode: Deleted line |diff.txt|
-		DiffText =      { bg = c.diff_text }, -- diff mode: Changed text within a changed line |diff.txt|
-		Directory =     { fg = c.blue }, -- directory names (and other special names in listings)
-		EndOfBuffer =   { fg = c.bg1 }, -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
-		ErrorMsg =      { fg = c.red }, -- error messages on the command line
+		DiffText =      { bg = c.diff_text },   -- diff mode: Changed text within a changed line |diff.txt|
+		Directory =     { fg = c.blue },        -- directory names (and other special names in listings)
+		EndOfBuffer =   { fg = c.bg1 },         -- filler lines after end of buffer. Default: highlighted like |hl-NonText|
+		ErrorMsg =      { fg = c.red },         -- error messages on the command line
 		ErrorText =     { sp = c.red, undercurl = options.styles.undercurl },
 		FloatBorder =   { fg = c.base1, bg = options.transparent and c.none or c.bg1 },
-		FoldColumn =    { bg = options.transparent and c.none or c.bg0, fg = c.bg1 }, -- 'foldcolumn'
-		Folded =        { fg = c.blue, bg = c.bg1 }, -- line used for closed folds
+		FoldColumn =    { bg = options.transparent and c.none or c.bg0, fg = c.bg1 },   -- 'foldcolumn'
+		Folded =        { fg = c.blue, bg = c.bg1 },                                    -- line used for closed folds
 		Foo =           { bg = c.magenta, fg = c.magenta },
 		HintText =      { sp = c.green, undercurl = false },
-		IncSearch =     { bg = c.orange, fg = c.bg0 }, -- 'incsearch' highlighting; also for text replaced w/ ":s///c"
+		IncSearch =     { bg = c.orange, fg = c.bg0 },  -- 'incsearch' highlighting; also for text replaced w/ ":s///c"
     InfoText=       { sp = c.blue, undercurl = options.styles.undercurl },
-		LineNr =        { bg = options.transparent and c.none or c.bg1, fg = c.fg1 }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
-		MatchParen =    { fg = c.orange, bold = true }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
-		ModeMsg =       { fg = c.fg2, bold = true }, -- 'showmode' message (e.g., "-- INSERT -- ")
-		MoreMsg =       { fg = c.blue }, -- |more-prompt|
-		MsgArea =       { fg = c.base2 }, -- Area for messages and cmdline
-		NonText =       { fg = c.fg2 }, -- '@' at the end of the window, characters from 'showbreak' and other characters
-                                    -- that do not really exist in the text (e.g., ">" displayed when a double-wide
-                                    -- character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
+		
+    LineNr = {      -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' is set.
+      bg = options.transparent and c.none or c.bg1,
+      fg = c.fg1
+    },
+		MatchParen =    { fg = c.orange, bold = true }, -- The character under the cursor or just before it, if it is a 
+                                                    --paired bracket, and its match. |pi_paren.txt|
+    ModeMsg =       { fg = c.fg2, bold = true },    -- 'showmode' message (e.g., "-- INSERT -- ")
+		MoreMsg =       { fg = c.blue },                -- |more-prompt|
+		MsgArea =       { fg = c.base2 },               -- Area for messages and cmdline
+
+		NonText =       { fg = c.fg2 }, -- '@' at end of window, characters from 'showbreak', and other characters
+                                    -- that do not really exist in text (e.g., ">" displayed when double-wide
+                                    -- character doesn't fit at end of line); see also: |hl-EndOfBuffer|
 		
     Normal =        { fg = c.fg0, bg = options.transparent and c.none or c.bg0 }, -- normal text
-		NormalFloat =   { fg = c.fg0, bg = options.transparent and c.none or c.bg1 }, -- Normal text in floating windows.
+		NormalFloat =   { fg = c.fg0, bg = options.transparent and c.none or c.bg1 }, -- Normal text in floating windows
 		NormalNC =      { fg = c.fg0, bg = options.transparent and c.none or c.bg0 }, -- normal text in non-current windows
-		NormalSB =      { fg = c.fg0, bg = c.bg0 }, -- normal text in sidebar
-		Pmenu =         { bg = options.transparent and c.none or c.bg1, fg = c.fg0 }, -- Popup menu: normal item.
-		PmenuSbar =     { bg = options.transparent and c.none or c.bg1 }, -- Popup menu: scrollbar.
-		PmenuSel =      { bg = c.fg2, fg = c.base3 }, -- Popup menu: selected item.
-		PmenuThumb =    { bg = c.base1 }, -- Popup menu: Thumb of the scrollbar.
+		NormalSB =      { fg = c.fg0, bg = c.bg0 },                                   -- normal text in sidebar
 
-		QuickFixLine =  { bg = c.bg1, bold = true, undercurl = options.styles.undercurl }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
-		Search =        { bg = c.bg_green, fg = c.bg0 }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
+		Pmenu =         { bg = options.transparent and c.none or c.bg1, fg = c.fg0 }, -- Popup menu: normal item
+		PmenuSbar =     { bg = options.transparent and c.none or c.bg1 },             -- Popup menu: scrollbar
+		PmenuSel =      { bg = c.fg2, fg = c.base3 },                                 -- Popup menu: selected item
+		PmenuThumb =    { bg = c.base1 },                                             -- Popup menu: Thumb of the scrollbar
+
+		QuickFixLine =  { -- Current |quickfix| item in quickfix window; combined w/ |hl-CursorLine| w/ cursor present
+      bg = c.bg1,
+      bold = true,
+      undercurl = options.styles.undercurl
+    },
+		Search = {      -- Last search pattern highlighting (see 'hlsearch'); also used for items needing to stand out
+      bg = c.bg_green,
+      fg = c.bg0 },
 		SignColumn =    { bg = options.transparent and c.none or c.bg0 }, -- column where |signs| are displayed
-		SignColumnSB =  { bg = c.bg0, fg = c.bg1 }, -- column where |signs| are displayed
-		SpecialKey =    { fg = c.fg2 }, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
-		SpellBad =      { sp = c.red, undercurl = options.styles.undercurl }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
-		SpellCap =      { sp = c.blue, undercurl = options.styles.undercurl }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
-		SpellLocal =    { sp = c.magenta, undercurl = options.styles.undercurl }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
-		SpellRare =     { sp = c.green, undercurl = options.styles.undercurl }, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
+		SignColumnSB =  { bg = c.bg0, fg = c.bg1 },                       -- column where |signs| are displayed
+
+		SpecialKey =    { fg = c.fg2 },     -- Unprintable characters not including 'listchars' whitespace |hl-Whitespace|
+
+		SpellBad = {    -- Word uncognized by the spellchecker |spell|; combined w/ highlighting used otherwise
+      sp = c.red,
+      undercurl = options.styles.undercurl
+    },
+		SpellCap = {    -- Word needing capitalized starting letter |spell|; combined w/ highlighting used otherwise
+      sp = c.blue,
+      undercurl = options.styles.undercurl
+    },
+		SpellLocal = {  -- Word identified as from other region |spell|; combined w/ highlighting used otherwise
+      sp = c.magenta,
+      undercurl = options.styles.undercurl
+    },
+		SpellRare = {   -- Word recognized as one rarely ever used |spell|; combined w/ highlighting used otherwise.
+      sp = c.green,
+      undercurl = options.styles.undercurl
+    },
+
 		StatusLine =    { fg = c.fg0, bg = options.transparent and c.none or c.bg0 }, -- status line of current window
 		StatusLineNC =  { fg = c.fg2 }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
 		Substitute =    { bg = c.red, fg = c.bg0 }, -- |:substitute| replacement text highlighting
@@ -90,21 +120,32 @@ function M.setup()
 		VisualNOS =     { bg = c.bg1 }, -- Visual mode selection when vim is "Not Owning the Selection".
 		
     WarningMsg =    { fg = c.red }, -- warning messages
-		WarningText =   { sp = c.yellow, undercurl = options.styles.undercurl },
+		WarningText = {
+      sp = c.yellow,
+      undercurl = options.styles.undercurl 
+    },
 		Whitespace =    { fg = c.fg2 }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
 		WildMenu =      { bg = c.bg1 }, -- current match in 'wildmenu' completion
-		WinSeparator =  { fg = options.transparent and c.bg0 or c.bg1, bold = true }, -- the column separating vertically split windows
+
+		WinSeparator =  { -- column separating vertically split windows
+      fg = options.transparent and c.bg0 or c.bg1,
+      bold = true 
+    },
 		lCursor =       { fg = c.bg0, bg = c.fg0 }, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
 
     -- These groups are not listed as default vim groups,
 		-- but they are defacto standard group names for syntax highlighting.
 		-- commented out groups should chain up to their "preferred" group by
-		-- default,
+		-- default.
 		-- Uncomment and edit if you want more specific syntax highlighting.
+    Underlined = { underline = true }, -- (preferred) text that stands out, HTML links
+    Bold = { bold = true },
+    Italic = { italic = true },
+
     Boolean = { fg = c.magenta }, --  a boolean constant: TRUE, false
     Character = { fg = c.green }, --  a character constant: 'c', '\n'
-		Constant = { fg = c.aqua }, -- (preferred) any constant
-    Conditional = { fg = c.aqua, italic = options.enable_italics }, --  if, then, else, endif, switch, etc.
+    Constant = { fg = c.cyan }, -- (preferred) any constant
+    Conditional = { fg = c.cyan, italic = options.enable_italics }, --  if, then, else, endif, switch, etc.
     Debug = { fg = c.orange }, --    debugging statements
     Define = { fg = c.magenta, italic = options.enable_italics }, --   preprocessor #define
     Delimiter = { fg = c.fg0 }, --  character that needs attention
@@ -115,8 +156,8 @@ function M.setup()
     Include = { fg = c.red, italic = options.enable_italics }, --  preprocessor #include
     Keyword = { fg = c.red, style = options.styles.keywords }, --  any other keyword
     Label = { fg = c.orange }, --    case, default, etc.
-    Macro = { fg = c.aqua }, --    same as Define
-		Number = { fg = c.magenta }, --   a number constant: 234, 0xff
+    Macro = { fg = c.cyan }, --    same as Define
+    Number = { fg = c.magenta }, --   a number constant: 234, 0xff
     Operator = { fg = c.orange }, -- "sizeof", "+", "*", etc.
     PreCondit = { fg = c.magenta, italic = options.enable_italics },
     PreProc = { fg = c.magenta, italic = options.enable_italics }, -- (preferred) generic Preprocessor
@@ -130,19 +171,15 @@ function M.setup()
     Structure = { fg = c.orange }, --  struct, union, enum, etc.
     Tag = { fg = c.orange }, --    you can use CTRL-] on this
     Todo = { bg = c.bg_yellow, fg = c.bg0 }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
-		Type = { fg = c.yellow }, -- (preferred) int, long, char, etc.
-		Typedef = { fg = c.red, italic = options.enable_italics }, --  A typedef
+    Type = { fg = c.yellow }, -- (preferred) int, long, char, etc.
+    Typedef = { fg = c.red, italic = options.enable_italics }, --  A typedef
 
-		Underlined = { underline = true }, -- (preferred) text that stands out, HTML links
-		Bold = { bold = true },
-		Italic = { italic = true },
-
-		-- ("Ignore", below, may be invisible...)
 		Ignore = { fg = c.base1 }, -- (preferred) left blank, hidden  |hl-Ignore|
 		Error = { fg = c.red }, -- (preferred) any erroneous construct
 		qfLineNr = { fg = c.base1 },
 		qfFileName = { fg = c.blue },
-		-- Diagnostic
+		
+    -- Diagnostic
 		RedSign = { fg = c.red },
 		YellowSign = { fg = c.yellow },
 		GreenSign = { fg = c.green },
@@ -155,7 +192,7 @@ function M.setup()
 		WarningFloat = { fg = c.yellow, bg = options.transparent and c.none or c.bg1 },
 		InfoFloat = { fg = c.blue, bg = options.transparent and c.none or c.bg1 },
 		HintFloat = { fg = c.green, bg = options.transparent and c.none or c.bg1 },
-		--[[ WinBarNC                   = { fg = c.base1 }, ]]
+
 		DiagnosticFloatingError = { link = "ErrorFloat" },
 		DiagnosticFloatingWarn = { link = "WarningFloat" },
 		DiagnosticFloatingInfo = { link = "InfoFloat" },
@@ -212,11 +249,12 @@ function M.setup()
 		healthWarning = { fg = c.yellow },
 		ALEErrorSign = { link = "ErrorMsg" },
 		ALEWarningSign = { link = "WarningMsg" },
-		-- These highlight Groups are for Tree-sitter
+		
+    -- Tree-sitter
 		TSAnnotation = { fg = c.magenta },
 		TSAttribute = { fg = c.magenta },
 		TSBoolean = { fg = c.magenta },
-		TSCharacter = { fg = c.aqua },
+		TSCharacter = { fg = c.cyan },
 		TSComment = { link = "Comment" },
 		TSConditional = { link = "Conditional" },
 		TSConstBuiltin = { fg = c.blue, italic = true },
@@ -247,7 +285,7 @@ function M.setup()
 		TSPunctSpecial = { fg = c.blue },
 		TSRepeat = { fg = c.red },
 		TSStorageClass = { fg = c.orange },
-		TSString = { fg = c.aqua },
+		TSString = { fg = c.cyan },
 		TSStringEscape = { fg = c.green },
 		TSStringRegex = { fg = c.green },
 		TSSymbol = { fg = c.fg0 },
@@ -299,7 +337,7 @@ function M.setup()
 		rainbowcol2 = { fg = c.orange },
 		rainbowcol3 = { fg = c.yellow },
 		rainbowcol4 = { fg = c.green },
-		rainbowcol5 = { fg = c.aqua },
+		rainbowcol5 = { fg = c.cyan },
 		rainbowcol6 = { fg = c.blue },
 		rainbowcol7 = { fg = c.magenta },
 		
@@ -321,7 +359,7 @@ function M.setup()
 		diffChanged = { fg = c.blue },
 		diffOldFile = { fg = c.yellow },
 		diffNewFile = { fg = c.orange },
-		diffFile = { fg = c.aqua },
+		diffFile = { fg = c.cyan },
 		diffLine = { fg = c.base1 },
 		diffIndexLine = { fg = c.magenta },
 		
@@ -342,7 +380,7 @@ function M.setup()
 		NeotestTest = { fg = c.base1 },
 		NeotestNamespace = { fg = c.bg_green },
 		NeotestFocused = { fg = c.yellow },
-		NeotestFile = { fg = c.aqua },
+		NeotestFile = { fg = c.cyan },
 		NeotestDir = { fg = c.blue },
 		NeotestBorder = { fg = c.blue },
 		NeotestIndent = { fg = c.base2 },
@@ -401,7 +439,7 @@ function M.setup()
 		NvimTreeGitStaged = { fg = c.blue },
 		NvimTreeGitMerge = { fg = c.orange },
 		NvimTreeGitRenamed = { fg = c.magenta },
-		NvimTreeGitNew = { fg = c.aqua },
+		NvimTreeGitNew = { fg = c.cyan },
 		NvimTreeGitDeleted = { fg = c.red },
 		NvimTreeLspDiagnosticsError = { link = "RedSign" },
 		NvimTreeLspDiagnosticsWarning = { link = "YellowSign" },
@@ -429,7 +467,7 @@ function M.setup()
 		NeoTreeFileNameOpened = { fg = c.magenta },
 		NeoTreeDimText = { fg = c.base1 },
 		NeoTreeFilterTerm = { fg = c.green, bold = true },
-		NeoTreeTabActive = { bg = options.transparent and c.none or c.bg0, fg = c.aqua, bold = true },
+		NeoTreeTabActive = { bg = options.transparent and c.none or c.bg0, fg = c.cyan, bold = true },
 		NeoTreeTabInactive = { bg = options.transparent and c.none or c.bg1, fg = c.base2 },
 		NeoTreeTabSeparatorActive = {
 			fg = options.transparent and c.none or c.bg0,
@@ -440,7 +478,7 @@ function M.setup()
 			bg = options.transparent and c.none or c.bg1,
 		},
 		NeoTreeVertSplit = { fg = c.base, bg = options.transparent and c.none or c.bg1 },
-		NeoTreeStatusLineNC = { fg = c.aqua, bg = c.aqua },
+		NeoTreeStatusLineNC = { fg = c.cyan, bg = c.cyan },
 		
     -- Fern
 		FernBranchText = { fg = c.blue },
@@ -588,7 +626,7 @@ function M.setup()
     -- Hop
 		HopNextKey = { fg = c.magenta, bold = true },
 		HopNextKey1 = { fg = c.blue, bold = true },
-		HopNextKey2 = { fg = c.aqua },
+		HopNextKey2 = { fg = c.cyan },
 		HopUnmatched = { fg = c.base3 },
 		LeapMatch = { bg = c.magenta, fg = c.fg0, bold = true },
 		LeapLabelPrimary = { fg = c.magenta, bold = true },
@@ -630,11 +668,11 @@ function M.setup()
 		CmpItemKindValue = { fg = c.magenta },
 		CmpItemKindEnum = { fg = c.yellow },
 		CmpItemKindKeyword = { fg = c.red },
-		CmpItemKindSnippet = { fg = c.aqua },
-		CmpItemKindColor = { fg = c.aqua },
-		CmpItemKindFile = { fg = c.aqua },
-		CmpItemKindReference = { fg = c.aqua },
-		CmpItemKindFolder = { fg = c.aqua },
+		CmpItemKindSnippet = { fg = c.cyan },
+		CmpItemKindColor = { fg = c.cyan },
+		CmpItemKindFile = { fg = c.cyan },
+		CmpItemKindReference = { fg = c.cyan },
+		CmpItemKindFolder = { fg = c.cyan },
 		CmpItemKindEnumMember = { fg = c.magenta },
 		CmpItemKindConstant = { fg = c.blue },
 		CmpItemKindStruct = { fg = c.yellow },
@@ -742,7 +780,7 @@ function M.setup()
 		MiniStatuslineModeCommand = { fg = "BLACK", bg = c.yellow, bold = true },
 		MiniStatuslineModeInsert = { fg = "BLACK", bg = c.green, bold = true },
 		MiniStatuslineModeNormal = { fg = "BLACK", bg = c.blue, bold = true },
-		MiniStatuslineModeOther = { fg = "BLACK", bg = c.aqua, bold = true },
+		MiniStatuslineModeOther = { fg = "BLACK", bg = c.cyan, bold = true },
 		MiniStatuslineModeReplace = { fg = "BLACK", bg = c.red, bold = true },
 		MiniStatuslineModeVisual = { fg = "BLACK", bg = c.magenta, bold = true },
 		MiniSurround = { bg = c.orange, fg = "BLACK" },
@@ -879,8 +917,8 @@ function M.setup()
 		markdownBold = { bold = true },
 		markdownItalicDelimiter = { fg = c.base1, italic = true },
 		markdownCode = { fg = c.green },
-		markdownCodeBlock = { fg = c.aqua },
-		markdownCodeDelimiter = { fg = c.aqua },
+		markdownCodeBlock = { fg = c.cyan },
+		markdownCodeDelimiter = { fg = c.cyan },
 		markdownBlockquote = { fg = c.fg2 },
 		markdownListMarker = { fg = c.red },
 		markdownOrderedListMarker = { fg = c.red },
@@ -925,7 +963,7 @@ function M.setup()
 		cssClassName = { fg = c.red, italic = options.enable_italics },
 		cssFunctionName = { fg = c.yellow },
 		cssAttr = { fg = c.orange },
-		cssProp = { fg = c.aqua },
+		cssProp = { fg = c.cyan },
 		cssCommonAttr = { fg = c.yellow },
 		cssPseudoClassId = { fg = c.blue },
 		cssPseudoClassFn = { fg = c.green },
@@ -934,7 +972,7 @@ function M.setup()
 		cssSelectorOp = { fg = c.orange },
 		cssSelectorOp2 = { fg = c.orange },
 		cssColor = { fg = c.green },
-		cssAttributeSelector = { fg = c.aqua },
+		cssAttributeSelector = { fg = c.cyan },
 		cssUnitDecorators = { fg = c.orange },
 		cssValueLength = { fg = c.green },
 		cssValueInteger = { fg = c.green },
@@ -946,7 +984,7 @@ function M.setup()
 		cssNoise = { fg = c.base1 },
 		
     -- JavaScript
-		javaScriptNull = { fg = c.aqua },
+		javaScriptNull = { fg = c.cyan },
 		javaScriptIdentifier = { fg = c.orange },
 		javaScriptParens = { fg = c.fg0 },
 		javaScriptBraces = { fg = c.fg0 },
@@ -954,7 +992,7 @@ function M.setup()
 		javaScriptMessage = { fg = c.yellow },
 		javaScriptFunction = { fg = c.red, italic = options.enable_italics },
 		javaScriptOperator = { fg = c.orange },
-		javaScriptMember = { fg = c.aqua },
+		javaScriptMember = { fg = c.cyan },
 		
     -- Python
 		pythonBuiltin = { fg = c.yellow },
@@ -963,13 +1001,13 @@ function M.setup()
 		
    -- Lua
 		luaFunc = { fg = c.green, style = options.styles.bold },
-		luaFunction = { fg = c.aqua },
+		luaFunction = { fg = c.cyan },
 		luaTable = { fg = c.fg0 },
 		luaIn = { fg = c.red, italic = options.enable_italics },
 
 		-- Go
 		goDirective = { fg = c.magenta, italic = options.enable_italics },
-		goConstants = { fg = c.aqua },
+		goConstants = { fg = c.cyan },
 		goDeclType = { fg = c.orange, italic = options.enable_italics },
 
 		-- Rust
@@ -982,8 +1020,8 @@ function M.setup()
 		rustDeriveTrait = { fg = c.magenta, italic = options.enable_italics },
 		rustEnumVariant = { fg = c.magenta },
 		rustMacroVariable = { fg = c.blue },
-		rustAssert = { fg = c.aqua },
-		rustPanic = { fg = c.aqua },
+		rustAssert = { fg = c.cyan },
+		rustPanic = { fg = c.cyan },
 		rustPubScopeCrate = { fg = c.magenta, italic = options.enable_italics },
 
 		-- PHP
@@ -993,7 +1031,7 @@ function M.setup()
 		phpSpecialFunction = { fg = c.green, bold = true },
 		phpInterpSimpleCurly = { fg = c.yellow },
 		phpComparison = { fg = c.orange },
-		phpMethodsVar = { fg = c.aqua },
+		phpMethodsVar = { fg = c.cyan },
 		phpMemberSelector = { fg = c.green },
 
 		-- Java
@@ -1003,7 +1041,7 @@ function M.setup()
 		javaAnnotation = { fg = c.blue },
 		javaUserLabel = { fg = c.magenta },
 		javaContant = { fg = c.violet },
-		javaTypedef = { fg = c.aqua },
+		javaTypedef = { fg = c.cyan },
 		javaParen = { fg = c.fg0 },
 		javaParen1 = { fg = c.fg0 },
 		javaParen2 = { fg = c.fg0 },
@@ -1026,7 +1064,7 @@ function M.setup()
 		-- sh/zsh
 		shRange = { fg = c.fg0 },
 		shTestOpr = { fg = c.orange },
-		shOption = { fg = c.aqua },
+		shOption = { fg = c.cyan },
 		bashStatement = { fg = c.orange },
 		shOperator = { fg = c.orange },
 		shQuote = { fg = c.green },
@@ -1056,14 +1094,14 @@ function M.setup()
 		vimUserFunc = { fg = c.green, bold = true },
 		vimFuncName = { fg = c.green, bold = true },
 		vimMap = { fg = c.magenta, italic = options.enable_italics },
-		vimNotation = { fg = c.aqua },
+		vimNotation = { fg = c.cyan },
 		vimMapLhs = { fg = c.green },
 		vimMapRhs = { fg = c.green },
 		vimSetEqual = { fg = c.yellow },
-		vimOption = { fg = c.aqua },
+		vimOption = { fg = c.cyan },
 		vimUserAttrbKey = { fg = c.yellow },
 		vimUserAttrb = { fg = c.green },
-		vimAutoCmdSfxList = { fg = c.aqua },
+		vimAutoCmdSfxList = { fg = c.cyan },
 		vimSynType = { fg = c.orange },
 		vimHiBang = { fg = c.orange },
 		vimSet = { fg = c.yellow },
@@ -1071,7 +1109,7 @@ function M.setup()
 		vimContinue = { fg = c.base1 },
 
 		--Make
-		makeIdent = { fg = c.aqua },
+		makeIdent = { fg = c.cyan },
 		makeSpecTarget = { fg = c.yellow },
 		makeTarget = { fg = c.blue },
 		makeCommands = { fg = c.orange },
@@ -1080,107 +1118,107 @@ function M.setup()
 		cmakeCommand = { fg = c.orange },
 		cmakeKWconfigure_package_config_file = { fg = c.yellow },
 		cmakeKWwrite_basic_package_version_file = { fg = c.yellow },
-		cmakeKWExternalProject = { fg = c.aqua },
-		cmakeKWadd_compile_definitions = { fg = c.aqua },
-		cmakeKWadd_compile_options = { fg = c.aqua },
-		cmakeKWadd_custom_command = { fg = c.aqua },
-		cmakeKWadd_custom_target = { fg = c.aqua },
-		cmakeKWadd_definitions = { fg = c.aqua },
-		cmakeKWadd_dependencies = { fg = c.aqua },
-		cmakeKWadd_executable = { fg = c.aqua },
-		cmakeKWadd_library = { fg = c.aqua },
-		cmakeKWadd_link_options = { fg = c.aqua },
-		cmakeKWadd_subdirectory = { fg = c.aqua },
-		cmakeKWadd_test = { fg = c.aqua },
-		cmakeKWbuild_command = { fg = c.aqua },
-		cmakeKWcmake_host_system_information = { fg = c.aqua },
-		cmakeKWcmake_minimum_required = { fg = c.aqua },
-		cmakeKWcmake_parse_arguments = { fg = c.aqua },
-		cmakeKWcmake_policy = { fg = c.aqua },
-		cmakeKWconfigure_file = { fg = c.aqua },
-		cmakeKWcreate_test_sourcelist = { fg = c.aqua },
-		cmakeKWctest_build = { fg = c.aqua },
-		cmakeKWctest_configure = { fg = c.aqua },
-		cmakeKWctest_coverage = { fg = c.aqua },
-		cmakeKWctest_memcheck = { fg = c.aqua },
-		cmakeKWctest_run_script = { fg = c.aqua },
-		cmakeKWctest_start = { fg = c.aqua },
-		cmakeKWctest_submit = { fg = c.aqua },
-		cmakeKWctest_test = { fg = c.aqua },
-		cmakeKWctest_update = { fg = c.aqua },
-		cmakeKWctest_upload = { fg = c.aqua },
-		cmakeKWdefine_property = { fg = c.aqua },
-		cmakeKWdoxygen_add_docs = { fg = c.aqua },
-		cmakeKWenable_language = { fg = c.aqua },
-		cmakeKWenable_testing = { fg = c.aqua },
-		cmakeKWexec_program = { fg = c.aqua },
-		cmakeKWexecute_process = { fg = c.aqua },
-		cmakeKWexport = { fg = c.aqua },
-		cmakeKWexport_library_dependencies = { fg = c.aqua },
-		cmakeKWfile = { fg = c.aqua },
-		cmakeKWfind_file = { fg = c.aqua },
-		cmakeKWfind_library = { fg = c.aqua },
-		cmakeKWfind_package = { fg = c.aqua },
-		cmakeKWfind_path = { fg = c.aqua },
-		cmakeKWfind_program = { fg = c.aqua },
-		cmakeKWfltk_wrap_ui = { fg = c.aqua },
-		cmakeKWforeach = { fg = c.aqua },
-		cmakeKWfunction = { fg = c.aqua },
-		cmakeKWget_cmake_property = { fg = c.aqua },
-		cmakeKWget_directory_property = { fg = c.aqua },
-		cmakeKWget_filename_component = { fg = c.aqua },
-		cmakeKWget_property = { fg = c.aqua },
-		cmakeKWget_source_file_property = { fg = c.aqua },
-		cmakeKWget_target_property = { fg = c.aqua },
-		cmakeKWget_test_property = { fg = c.aqua },
-		cmakeKWif = { fg = c.aqua },
-		cmakeKWinclude = { fg = c.aqua },
-		cmakeKWinclude_directories = { fg = c.aqua },
-		cmakeKWinclude_external_msproject = { fg = c.aqua },
-		cmakeKWinclude_guard = { fg = c.aqua },
-		cmakeKWinstall = { fg = c.aqua },
-		cmakeKWinstall_files = { fg = c.aqua },
-		cmakeKWinstall_programs = { fg = c.aqua },
-		cmakeKWinstall_targets = { fg = c.aqua },
-		cmakeKWlink_directories = { fg = c.aqua },
-		cmakeKWlist = { fg = c.aqua },
-		cmakeKWload_cache = { fg = c.aqua },
-		cmakeKWload_command = { fg = c.aqua },
-		cmakeKWmacro = { fg = c.aqua },
-		cmakeKWmark_as_advanced = { fg = c.aqua },
-		cmakeKWmath = { fg = c.aqua },
-		cmakeKWmessage = { fg = c.aqua },
-		cmakeKWoption = { fg = c.aqua },
-		cmakeKWproject = { fg = c.aqua },
-		cmakeKWqt_wrap_cpp = { fg = c.aqua },
-		cmakeKWqt_wrap_ui = { fg = c.aqua },
-		cmakeKWremove = { fg = c.aqua },
-		cmakeKWseparate_arguments = { fg = c.aqua },
-		cmakeKWset = { fg = c.aqua },
-		cmakeKWset_directory_properties = { fg = c.aqua },
-		cmakeKWset_property = { fg = c.aqua },
-		cmakeKWset_source_files_properties = { fg = c.aqua },
-		cmakeKWset_target_properties = { fg = c.aqua },
-		cmakeKWset_tests_properties = { fg = c.aqua },
-		cmakeKWsource_group = { fg = c.aqua },
-		cmakeKWstring = { fg = c.aqua },
-		cmakeKWsubdirs = { fg = c.aqua },
-		cmakeKWtarget_compile_definitions = { fg = c.aqua },
-		cmakeKWtarget_compile_features = { fg = c.aqua },
-		cmakeKWtarget_compile_options = { fg = c.aqua },
-		cmakeKWtarget_include_directories = { fg = c.aqua },
-		cmakeKWtarget_link_directories = { fg = c.aqua },
-		cmakeKWtarget_link_libraries = { fg = c.aqua },
-		cmakeKWtarget_link_options = { fg = c.aqua },
-		cmakeKWtarget_precompile_headers = { fg = c.aqua },
-		cmakeKWtarget_sources = { fg = c.aqua },
-		cmakeKWtry_compile = { fg = c.aqua },
-		cmakeKWtry_run = { fg = c.aqua },
-		cmakeKWunset = { fg = c.aqua },
-		cmakeKWuse_mangled_mesa = { fg = c.aqua },
-		cmakeKWvariable_requires = { fg = c.aqua },
-		cmakeKWvariable_watch = { fg = c.aqua },
-		cmakeKWwrite_file = { fg = c.aqua },
+		cmakeKWExternalProject = { fg = c.cyan },
+		cmakeKWadd_compile_definitions = { fg = c.cyan },
+		cmakeKWadd_compile_options = { fg = c.cyan },
+		cmakeKWadd_custom_command = { fg = c.cyan },
+		cmakeKWadd_custom_target = { fg = c.cyan },
+		cmakeKWadd_definitions = { fg = c.cyan },
+		cmakeKWadd_dependencies = { fg = c.cyan },
+		cmakeKWadd_executable = { fg = c.cyan },
+		cmakeKWadd_library = { fg = c.cyan },
+		cmakeKWadd_link_options = { fg = c.cyan },
+		cmakeKWadd_subdirectory = { fg = c.cyan },
+		cmakeKWadd_test = { fg = c.cyan },
+		cmakeKWbuild_command = { fg = c.cyan },
+		cmakeKWcmake_host_system_information = { fg = c.cyan },
+		cmakeKWcmake_minimum_required = { fg = c.cyan },
+		cmakeKWcmake_parse_arguments = { fg = c.cyan },
+		cmakeKWcmake_policy = { fg = c.cyan },
+		cmakeKWconfigure_file = { fg = c.cyan },
+		cmakeKWcreate_test_sourcelist = { fg = c.cyan },
+		cmakeKWctest_build = { fg = c.cyan },
+		cmakeKWctest_configure = { fg = c.cyan },
+		cmakeKWctest_coverage = { fg = c.cyan },
+		cmakeKWctest_memcheck = { fg = c.cyan },
+		cmakeKWctest_run_script = { fg = c.cyan },
+		cmakeKWctest_start = { fg = c.cyan },
+		cmakeKWctest_submit = { fg = c.cyan },
+		cmakeKWctest_test = { fg = c.cyan },
+		cmakeKWctest_update = { fg = c.cyan },
+		cmakeKWctest_upload = { fg = c.cyan },
+		cmakeKWdefine_property = { fg = c.cyan },
+		cmakeKWdoxygen_add_docs = { fg = c.cyan },
+		cmakeKWenable_language = { fg = c.cyan },
+		cmakeKWenable_testing = { fg = c.cyan },
+		cmakeKWexec_program = { fg = c.cyan },
+		cmakeKWexecute_process = { fg = c.cyan },
+		cmakeKWexport = { fg = c.cyan },
+		cmakeKWexport_library_dependencies = { fg = c.cyan },
+		cmakeKWfile = { fg = c.cyan },
+		cmakeKWfind_file = { fg = c.cyan },
+		cmakeKWfind_library = { fg = c.cyan },
+		cmakeKWfind_package = { fg = c.cyan },
+		cmakeKWfind_path = { fg = c.cyan },
+		cmakeKWfind_program = { fg = c.cyan },
+		cmakeKWfltk_wrap_ui = { fg = c.cyan },
+		cmakeKWforeach = { fg = c.cyan },
+		cmakeKWfunction = { fg = c.cyan },
+		cmakeKWget_cmake_property = { fg = c.cyan },
+		cmakeKWget_directory_property = { fg = c.cyan },
+		cmakeKWget_filename_component = { fg = c.cyan },
+		cmakeKWget_property = { fg = c.cyan },
+		cmakeKWget_source_file_property = { fg = c.cyan },
+		cmakeKWget_target_property = { fg = c.cyan },
+		cmakeKWget_test_property = { fg = c.cyan },
+		cmakeKWif = { fg = c.cyan },
+		cmakeKWinclude = { fg = c.cyan },
+		cmakeKWinclude_directories = { fg = c.cyan },
+		cmakeKWinclude_external_msproject = { fg = c.cyan },
+		cmakeKWinclude_guard = { fg = c.cyan },
+		cmakeKWinstall = { fg = c.cyan },
+		cmakeKWinstall_files = { fg = c.cyan },
+		cmakeKWinstall_programs = { fg = c.cyan },
+		cmakeKWinstall_targets = { fg = c.cyan },
+		cmakeKWlink_directories = { fg = c.cyan },
+		cmakeKWlist = { fg = c.cyan },
+		cmakeKWload_cache = { fg = c.cyan },
+		cmakeKWload_command = { fg = c.cyan },
+		cmakeKWmacro = { fg = c.cyan },
+		cmakeKWmark_as_advanced = { fg = c.cyan },
+		cmakeKWmath = { fg = c.cyan },
+		cmakeKWmessage = { fg = c.cyan },
+		cmakeKWoption = { fg = c.cyan },
+		cmakeKWproject = { fg = c.cyan },
+		cmakeKWqt_wrap_cpp = { fg = c.cyan },
+		cmakeKWqt_wrap_ui = { fg = c.cyan },
+		cmakeKWremove = { fg = c.cyan },
+		cmakeKWseparate_arguments = { fg = c.cyan },
+		cmakeKWset = { fg = c.cyan },
+		cmakeKWset_directory_properties = { fg = c.cyan },
+		cmakeKWset_property = { fg = c.cyan },
+		cmakeKWset_source_files_properties = { fg = c.cyan },
+		cmakeKWset_target_properties = { fg = c.cyan },
+		cmakeKWset_tests_properties = { fg = c.cyan },
+		cmakeKWsource_group = { fg = c.cyan },
+		cmakeKWstring = { fg = c.cyan },
+		cmakeKWsubdirs = { fg = c.cyan },
+		cmakeKWtarget_compile_definitions = { fg = c.cyan },
+		cmakeKWtarget_compile_features = { fg = c.cyan },
+		cmakeKWtarget_compile_options = { fg = c.cyan },
+		cmakeKWtarget_include_directories = { fg = c.cyan },
+		cmakeKWtarget_link_directories = { fg = c.cyan },
+		cmakeKWtarget_link_libraries = { fg = c.cyan },
+		cmakeKWtarget_link_options = { fg = c.cyan },
+		cmakeKWtarget_precompile_headers = { fg = c.cyan },
+		cmakeKWtarget_sources = { fg = c.cyan },
+		cmakeKWtry_compile = { fg = c.cyan },
+		cmakeKWtry_run = { fg = c.cyan },
+		cmakeKWunset = { fg = c.cyan },
+		cmakeKWuse_mangled_mesa = { fg = c.cyan },
+		cmakeKWvariable_requires = { fg = c.cyan },
+		cmakeKWvariable_watch = { fg = c.cyan },
+		cmakeKWwrite_file = { fg = c.cyan },
 
 		-- JSON
 		jsonKeyword = { fg = c.orange },
@@ -1193,7 +1231,7 @@ function M.setup()
 
 		-- toml
 		tomlKey = { fg = c.orange },
-		tomlBoolean = { fg = c.aqua },
+		tomlBoolean = { fg = c.cyan },
 		tomlTableArray = { link = "tomlTable" },
 	}
 

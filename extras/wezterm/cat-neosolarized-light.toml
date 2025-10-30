@@ -1,16 +1,16 @@
-# /extras/wezterm/NeoSolarized-dark.toml
+# /extras/wezterm/cat-neosolarized-light.toml
 # WARNING: this has been modified from the original NeoSolarized.nvim
 # src: https://github.com/Tsuzat/NeoSolarized.nvim
 
-# NeoSolarized Dark
+# NeoSolarized Light
 
 [colors]
-background = "#001217"
-foreground = "#708183"
+background = "#fcf4dc"
+foreground = "#002b36"
 
 cursor_bg = "#708183"
 
-selection_bg = "#fcf4dc"
+selection_bg = "#52676f"
 selection_fg = "#001e26"
 
 [colors.tab_bar]
@@ -18,14 +18,14 @@ background = "#073642"
 
 [colors.tab_bar.active_tab]
 fg_color = "#181926"
-bg_color = "#268bd2"
+bg_color = "#cad3f5"
 
 [colors.tab_bar.inactive_tab]
-fg_color = "#CAD3F5"
-bg_color = "#586e75"
+fg_color = "#586e75"
+bg_color = "#cad3f5"
 
 ansi = [ "#002b36", "#dc322f", "#859900", "#b58900", "#268bd2", "#d33682", "#2aa198", "#e9e2cb" ]
 brights = [ "#001e26", "#cb4b16", "#465a61", "#52676f", "#708183", "#6c71c4", "#81908f", "#fcf4dc" ]
 
 [metadata]
-name = 'NeoSolarized Dark'
+name = 'NeoSolarized Light'

@@ -1,4 +1,4 @@
--- /lua/NeoSolarized/config.lua
+-- /lua/cat-neosolarized/config.lua
 -- WARNING: this has been modified from the original NeoSolarized.nvim
 -- src: https://github.com/Tsuzat/NeoSolarized.nvim
 

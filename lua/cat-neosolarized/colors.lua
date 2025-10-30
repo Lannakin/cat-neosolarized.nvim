@@ -1,4 +1,4 @@
--- /lua/NeoSolarized/colors.lua
+-- /lua/cat-neosolarized/colors.lua
 -- WARNING: this has been modified from the original NeoSolarized.nvim
 -- src: https://github.com/Tsuzat/NeoSolarized.nvim
 
@@ -19,7 +19,7 @@ M.dark = {
   orange      = '#cb4b16',
   yellow      = '#b58900',
   green       = '#859900',
-  aqua        = '#2aa198',
+  cyan        = '#2aa198', -- renamed from aqua to match convention
   blue        = '#268bd2',
   magenta     = '#d33682', -- renamed from purple to match convention
   violet      = '#6c71c4',
@@ -48,7 +48,7 @@ M.light = {
   orange      = '#cb4b16',
   yellow      = '#b58900',
   green       = '#859900',
-  aqua        = '#2aa198',
+  cyan        = '#2aa198', -- renamed from aqua to match convention
   blue        = '#268bd2',
   magenta     = '#d33682', -- renamed from purple to match convention
   violet      = '#6c71c4',
@@ -64,7 +64,7 @@ M.light = {
 
 function M.setup(opts)
   opts = opts or {}
-  local config = require("NeoSolarized.config")
+  local config = require('cat-neosolarized.config'fig')
 
   local palette = M.dark
   if config.is_day() then
