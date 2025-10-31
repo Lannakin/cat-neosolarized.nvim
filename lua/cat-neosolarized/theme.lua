@@ -19,7 +19,7 @@ function M.setup()
 
 		ColorColumn =  { bg = c.bg1 }, -- used for the columns set with 'colorcolumn'
 		Comment = { -- any comment
-			fg = c.bg2,
+			fg = c.base1,
 			style = options.styles.comments,
 		},
 		Conceal =      { fg = c.bg1 }, -- placeholder characters substituted for concealed text
