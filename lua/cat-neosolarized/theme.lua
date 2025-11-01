@@ -141,7 +141,9 @@ function M.setup()
 		},
 		Whitespace = { fg = c.fg2 }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
 		WildMenu =   { bg = c.bg1 }, -- current match in 'wildmenu' completion
-
+    
+    WinBar =       { link = "Normal" },
+    WinBarNC =     { link = "NormalNC" },
 		WinSeparator = { -- column separating vertically split windows
 			fg = options.transparent and c.bg0 or c.bg1,
 			bold = true,
@@ -897,10 +899,11 @@ function M.setup()
 		DropBarKindValue =              { fg = c.fg1 },
 		DropBarKindVariable =           { fg = c.fg1 },
 		DropBarKindWhileStatement =     { fg = c.fg1 },
+    DropBarMenuFloatBorder =        { link = 'FloatBorder' },
+    DropBarMenuNormalFloat =        { link = 'NormalFloat' },
 
 		--[[
-      Here one can define vim's built-in language specific highlight groups; 
-      these need to be kept separate, apparently?
+      Here one can define vim's built-in language specific highlight groups;
     --]]
 
     -- Cmake
