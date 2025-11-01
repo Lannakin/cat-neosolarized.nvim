@@ -60,7 +60,7 @@ function M.setup()
 
 		MatchParen = {  -- character under / just before cursor and paired match, if paired. |pi_paren.txt|
       fg = c.orange,
-      bg = bg1,
+      bg = c.bg1,
       bold = true
     },
 		
@@ -899,7 +899,7 @@ function M.setup()
 		DropBarKindWhileStatement =     { fg = c.fg1 },
 
 		--[[
-      Here one can define vim's built-in language specific highlight groups;
+      Here one can define vim's built-in language specific highlight groups; 
       these need to be kept separate, apparently?
     --]]
 
