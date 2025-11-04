@@ -408,11 +408,11 @@ function M.setup()
     NeogitDiffAddHighlight =     { fg = c.green },
 
 		-- GitGutter
-		GitGutterAdd =                { link = "GreenSign" },
-		GitGutterChange =             { link = "BlueSign" },
-		GitGutterDelete =             { link = "RedSign" },
-		GitGutterChangeDelete =       { fg = c.magenta },
-		GitGutterAddLine =            { link = "diffAdded" },
+    GitGutterAdd =                { link = "GreenSign" },
+    GitGutterChange =             { link = "BlueSign" },
+    GitGutterDelete =             { link = "RedSign" },
+    GitGutterChangeDelete =       { fg = c.magenta },
+    GitGutterAddLine =            { link = "diffAdded" },
 		GitGutterChangeLine =         { link = "diffChanged" },
 		GitGutterDeleteLine =         { link = "diffRemoved" },
 		GitGutterChangeDeleteLine =   { fg = c.magenta },
