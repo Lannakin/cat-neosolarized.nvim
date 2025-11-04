@@ -25,7 +25,7 @@ function M.setup()
 		Conceal =      { fg = c.bg1 },                  -- placeholder characters substituted for concealed text
 		CurSearch =    { link = "IncSearch" },
 		CurrentWord =  { fg = c.bg0, bg = c.bg_green },
-		
+
     Cursor =       { fg = c.bg1, bg = c.fg0 },      -- character under the cursor
 		CursorColumn = { link = "CursorLine" },         -- Screen-column at the cursor, when 'cursorcolumn' is set
 		CursorIM =     { fg = c.bg0, bg = c.fg0 },      -- like Cursor, but used when in IME mode |CursorIM|
@@ -38,16 +38,16 @@ function M.setup()
 		DiffChange =   { bg = c.diff_change },          -- diff mode: Changed line |diff.txt|
 		DiffDelete =   { bg = c.diff_delete },          -- diff mode: Deleted line |diff.txt|
 		DiffText =     { bg = c.diff_text },            -- diff mode: Changed text within a changed line |diff.txt|
-		
+
     Directory =    { fg = c.blue },                 -- directory names (and other special names in listings)
 		EndOfBuffer =  { fg = c.bg1 },                  -- filler lines after end of buffer. Default: like |hl-NonText|
 		ErrorMsg =     { fg = c.red },                  -- error messages on the command line
 		ErrorText =    { sp = c.red, undercurl = options.styles.undercurl },
 		FloatBorder =  { fg = c.base1, bg = options.transparent and c.none or c.bg1 },
-		
+
     FoldColumn = { bg = options.transparent and c.none or c.bg0, fg = c.bg1 },
 		Folded =       { fg = c.blue, bg = c.bg1 },      -- line used for closed folds
-		
+
     Foo =          { bg = c.magenta, fg = c.magenta },
 		HintText =     { sp = c.green, undercurl = false },
 		IncSearch =    { bg = c.orange, fg = c.bg0 }, -- 'incsearch' highlighting; also for text replaced w/ ":s///c"
@@ -63,7 +63,7 @@ function M.setup()
       bg = c.bg1,
       bold = true
     },
-		
+
     ModeMsg =    { fg = c.fg2, bold = true }, -- 'showmode' message (e.g., "-- INSERT -- ")
 		MoreMsg =    { fg = c.blue },             -- |more-prompt|
 		MsgArea =    { fg = c.base2 },            -- Area for messages and cmdline
@@ -141,7 +141,7 @@ function M.setup()
 		},
 		Whitespace = { fg = c.fg2 }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
 		WildMenu =   { bg = c.bg1 }, -- current match in 'wildmenu' completion
-    
+
     WinBar =       { link = "Normal" },
     WinBarNC =     { link = "NormalNC" },
 		WinSeparator = { -- column separating vertically split windows
@@ -773,6 +773,7 @@ function M.setup()
 		NotifyDEBUGTitle =  { fg = c.base1 },
 		NotifyTRACETitle =  { fg = c.magenta },
 
+
 		-- Mini
 		MiniCompletionActiveParameter = { underline = true },
 		MiniCursorword =                { bg = c.fg2 },
@@ -814,8 +815,7 @@ function M.setup()
 		MiniTestPass =                  { fg = c.green, bold = true },
 		MiniTrailspace =                { bg = c.red },
 
-		-- Noice
-		NoiceCompletionItemKindDefault =        { fg = c.fg2, bg = c.none },
+-- ─── Noice ──────────────────────────────────────────────────────────────────
 		NoiceCompletionItemKindKeyword =        { fg = c.violet, bg = c.none },
 		NoiceCompletionItemKindVariable =       { fg = c.magenta, bg = c.none },
 		NoiceCompletionItemKindConstant =       { fg = c.magenta, bg = c.none },
@@ -838,7 +838,7 @@ function M.setup()
 		NoiceCompletionItemKindOperator =       { fg = c.green1, bg = c.none },
 		NoiceCompletionItemKindSnippet =        { fg = "BLACK", bg = c.none },
 
-		-- Dropbar.nvim
+-- ─── DropBar.nvim ───────────────────────────────────────────────────────────
 		DropBarMenuHoverEntry =         { link = "Visual" },
 		DropBarMenuHoverIcon =          { reverse = true },
 		DropBarMenuHoverSymbol =        { bold = true },
@@ -902,11 +902,11 @@ function M.setup()
     DropBarMenuFloatBorder =        { link = 'FloatBorder' },
     DropBarMenuNormalFloat =        { link = 'NormalFloat' },
 
-		--[[
-      Here one can define vim's built-in language specific highlight groups;
-    --]]
+-- ┌─────────────────────────────────────────────────────────┐
+-- │   Built-in Language Highlight Groups                    │
+-- └─────────────────────────────────────────────────────────┘
 
-    -- Cmake
+-- ─── CMake ───────────────────────────────────────────────────────────────────
 		cmakeCommand =                            { fg = c.orange },
 		cmakeKWconfigure_package_config_file =    { fg = c.yellow },
 		cmakeKWwrite_basic_package_version_file = { fg = c.yellow },
@@ -1098,7 +1098,7 @@ function M.setup()
     luaFunction =   { fg = c.cyan },
     luaTable =      { fg = c.fg0 },
     luaIn =         { fg = c.red, italic = options.enable_italics },
-		
+
     -- Make
 		makeIdent =      { fg = c.cyan },
 		makeSpecTarget = { fg = c.yellow },
