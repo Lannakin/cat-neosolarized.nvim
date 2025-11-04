@@ -1,5 +1,5 @@
 <!-- README.md -->
-# 🖌 cat-NeoSolarized
+# 🖌 cat-cat-neosolarized
 
 > ⚠️ modified from [NeoSolarized.nvim](https://github.com/Tsuzat/NeoSolarized.nvim) ⚠️
 
@@ -68,20 +68,20 @@ Install the theme with your preferred package manager:
 ### [`vim-plug`](https://github.com/junegunn/vim-plug)
 
 ```vim
-Plug 'Tsuzat/NeoSolarized.nvim', { 'branch': 'master' }
+Plug 'Lannakin/cat-neosolarized.nvim', { 'branch': 'master' }
 ```
 
 ### [`packer`](https://github.com/wbthomason/packer.nvim)
 
 ```lua
-use ('Tsuzat/NeoSolarized.nvim')
+use ('Lannakin/cat-neosolarized.nvim')
 ```
 **or** clone the project and install locally using packer.
 
 First clone the project in you machine.
 
 ```sh
-git clone https://github.com/Tsuzat/NeoSolarized.nvim
+git clone https://github.com/Lannakin/cat-neosolarized.nvim
 ```
 ```
 ```
@@ -89,18 +89,18 @@ git clone https://github.com/Tsuzat/NeoSolarized.nvim
 Install using packer
 
 ```lua
-use ('path-to-NeoSolarized')
+use ('path-to-cat-neosolarized')
 ```
 
 ### [`lazy.nvim`](https://github.com/folke/lazy.nvim)
 
 ```lua
 {
-  "Tsuzat/NeoSolarized.nvim",
+  "Lannakin/cat-neosolarized.nvim",
     lazy = false, -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
-      vim.cmd [[ colorscheme NeoSolarized ]]
+      vim.cmd [[ colorscheme cat-neosolarized ]]
     end
 }
 ```
@@ -111,21 +111,21 @@ Enable the colorscheme:
 
 ```vim
 " Vim Script
-colorscheme NeoSolarized
+colorscheme cat-neosolarized
 ```
 
 ```lua
 -- Lua
-vim.cmd[[colorscheme NeoSolarized]]
+vim.cmd[[colorscheme cat-neosolarized]]
 ```
 
-To use the `NeoSolarized` theme for `Lualine`, simply specify it in your
+To use the `cat-neosolarized` theme for `Lualine`, simply specify it in your
 lualine settings:
 
 ```lua
 require('lualine').setup {
   options = {
-    theme = 'NeoSolarized'
+    theme = 'cat-neosolarized'
     -- ... your lualine config
   }
 }
@@ -134,24 +134,24 @@ require('lualine').setup {
 ## ⚙️ Configuration
 
 > ⚠️ configuration needs to be set **BEFORE** loading the color scheme with
-> `colorscheme NeoSolarized`
+> `colorscheme cat-neosolarized`
 
 The theme comes in two styles, `light` and `dark`.
 
-NeoSolarized will use the default options, unless you call `setup`. (Note: Lazy.nvim will call setup via
+cat-neosolarized will use the default options, unless you call `setup`. (Note: Lazy.nvim will call setup via
 'opts = {}')
 Here an example to set things up using default options.
 
 ```lua
-local ok_status, NeoSolarized = pcall(require, "NeoSolarized")
+local ok_status, cat-neosolarized = pcall(require, "cat-neosolarized")
 
 if not ok_status then
   return
 end
 
--- Default Setting for NeoSolarized
+-- Default Setting for cat-neosolarized
 
-NeoSolarized.setup {
+cat-neosolarized.setup {
   style = "dark", -- "dark" or "light"
   transparent = true, -- true/false; Enable this to disable setting the background color
   terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
@@ -171,10 +171,10 @@ NeoSolarized.setup {
     -- highlights.Include.fg = colors.red -- Using `red` foreground for Includes
   end, 
 }
--- Set colorscheme to NeoSolarized
+-- Set colorscheme to cat-neosolarized
 vim.cmd [[
    try
-        colorscheme NeoSolarized
+        colorscheme cat-neosolarized
     catch /^Vim\%((\a\+)\)\=:E18o
         colorscheme default
         set background=dark
