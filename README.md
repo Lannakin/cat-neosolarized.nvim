@@ -1,5 +1,5 @@
 <!-- README.md -->
-# 🖌 cat-cat-neosolarized
+# 🖌 cat-neosolarized
 
 > ⚠️ modified from [NeoSolarized.nvim](https://github.com/Tsuzat/NeoSolarized.nvim) ⚠️
 
