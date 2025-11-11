@@ -26,9 +26,9 @@ function M.setup()
     CurSearch =    { link = "IncSearch" },
     CurrentWord =  { fg = c.green, underline = true },
 
-    Cursor =       { fg = c.bg1, bg = c.fg0 },-- character under cursor
+    Cursor =       { fg = c.bg1, bg = c.fg2 },-- character under cursor
     CursorColumn = { link = "CursorLine" },                   -- Screen-column at cursor when 'cursorcolumn' is set
-    CursorIM =     { fg = c.bg0, bg = c.fg0 },-- like Cursor, but used when in IME mode |CursorIM|
+    CursorIM =     { fg = c.bg0, bg = c.fg2 },-- like Cursor, but used when in IME mode |CursorIM|
     CursorLine =   {                                          -- Screen-line at cursor when 'cursorline' is set;
       bg = options.transparent and c.bg0 or c.bg1,    -- low prio if (ctermfg / guifg) not set
     },
