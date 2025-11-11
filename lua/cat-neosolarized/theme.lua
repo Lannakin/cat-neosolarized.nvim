@@ -24,7 +24,7 @@ function M.setup()
     },
     Conceal =      { fg = c.bg1 },                  -- placeholder characters substituted for concealed text
     CurSearch =    { link = "IncSearch" },
-    CurrentWord =  { fg = c.bg0, bg = c.bg_green },
+    CurrentWord =  { fg = c.green, underline = true },
 
     Cursor =       { fg = c.bg1, bg = c.fg0 },-- character under cursor
     CursorColumn = { link = "CursorLine" },                   -- Screen-column at cursor when 'cursorcolumn' is set
@@ -789,6 +789,15 @@ function M.setup()
     MiniCompletionActiveParameter = { underline = true },
     MiniCursorword =                { bg = c.fg2 },
     MiniCursorwordCurrent =         { bg = c.fg2 },
+    MiniIconsAzure =                { fg = c.blue },
+    MiniIconsBlue =                 { fg = c.blue },
+    MiniIconsCyan =                 { fg = c.cyan },
+    MiniIconsGreen =                { fg = c.green },
+    MiniIconsGrey =                 { fg = c.fg2 },
+    MiniIconsOrange =               { fg = c.orange },
+    MiniIconsPurple =               { fg = c.violet },
+    MiniIconsRed =                  { fg = c.red },
+    MiniIconsYellow =               { fg = c.yellow },
     MiniIndentscopeSymbol =         { fg = options.transparent and c.bg1 or c.fg2 },
     MiniIndentscopePrefix =         { nocombine = true }, -- Make it invisible
     MiniJump =                      { bg = c.magenta, fg = "#ffffff" },
