@@ -857,6 +857,7 @@ function M.setup()
     NoiceCompletionItemKindEnumMember =     { fg = c.green1, bg = c.none },
     NoiceCompletionItemKindOperator =       { fg = c.green1, bg = c.none },
     NoiceCompletionItemKindSnippet =        { fg = "BLACK", bg = c.none },
+    NoiceLspProgressSpinner =               { fg = c.green, bg = c.none },
 
 -- --| DropBar.nvim |--------------------------------------------------------------------------------------------------
     DropBarMenuHoverEntry =         { link = "Visual" },
